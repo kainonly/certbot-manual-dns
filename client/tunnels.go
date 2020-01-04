@@ -2,9 +2,9 @@ package client
 
 import (
 	"errors"
+	"github.com/kainonly/ssh-client/common"
+	"github.com/kainonly/ssh-client/storage"
 	"net"
-	"ssh-client/common"
-	"ssh-client/storage"
 	"sync"
 )
 

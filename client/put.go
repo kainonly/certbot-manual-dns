@@ -1,8 +1,8 @@
 package client
 
 import (
-	"ssh-client/common"
-	"ssh-client/storage"
+	"github.com/kainonly/ssh-client/common"
+	"github.com/kainonly/ssh-client/storage"
 	"sync"
 )
 
