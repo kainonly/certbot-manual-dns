@@ -2,7 +2,7 @@ package client
 
 import (
 	"errors"
-	"ssh-client/common"
+	"github.com/kainonly/ssh-client/common"
 )
 
 // Get ssh client information

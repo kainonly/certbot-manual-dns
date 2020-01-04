@@ -1,7 +1,7 @@
 package client
 
 import (
-	"ssh-client/storage"
+	"github.com/kainonly/ssh-client/storage"
 )
 
 // Delete ssh client

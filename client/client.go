@@ -1,10 +1,10 @@
 package client
 
 import (
+	"github.com/kainonly/ssh-client/common"
+	"github.com/kainonly/ssh-client/storage"
 	"golang.org/x/crypto/ssh"
 	"log"
-	"ssh-client/common"
-	"ssh-client/storage"
 )
 
 type (

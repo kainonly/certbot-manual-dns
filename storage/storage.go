@@ -1,10 +1,10 @@
 package storage
 
 import (
+	"github.com/kainonly/ssh-client/common"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/vmihailenco/msgpack"
 	"log"
-	"ssh-client/common"
 )
 
 type (

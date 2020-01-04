@@ -1,8 +1,8 @@
 package client
 
 import (
+	"github.com/kainonly/ssh-client/common"
 	"golang.org/x/crypto/ssh"
-	"ssh-client/common"
 )
 
 // Generate AuthMethod
