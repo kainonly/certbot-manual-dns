@@ -1,4 +1,4 @@
-module ssh-client
+module github.com/kainonly/ssh-client
 
 go 1.13
 
