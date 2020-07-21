@@ -2,6 +2,7 @@
 import configparser
 import common
 import os
+import time
 
 CERTBOT_DOMAIN = os.environ['CERTBOT_DOMAIN']
 CERTBOT_VALIDATION = os.environ['CERTBOT_VALIDATION']
@@ -24,8 +25,11 @@ try:
     key = option.get('key')
 
     if platform == 'qcloud':
-        dns = common.Qcloud(id, key)
+        dns = common.Qcloud(id, key, CERTBOT_DOMAIN)
     else:
         raise Exception(f'The domain [{CERTBOT_DOMAIN}] platform service provider does not support')
+    dns.resolve('_acme-challenge', CERTBOT_VALIDATION, option.get('ttl') or 600)
+    time.sleep(3)
+    print(f'Verify that the record [_acme-challenge.{CERTBOT_DOMAIN}] is parsed successfully')
 except Exception as e:
     raise
