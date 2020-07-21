@@ -31,3 +31,20 @@ chmod +x ./bootstrap.py
 ```shell script
 certbot renew --manual-auth-hook ./bootstrap.py
 ```
+
+也可以为其编写定时脚本，例如：新建 `/etc/letsencrypt/task.sh`
+
+```shell script
+#!/bin/sh
+uptime >> /var/log/certbot.log
+certbot renew --manual-auth-hook /opt/certbot-manual-dns/bootstrap.py --deploy-hook "docker-compose -f /opt/compose/docker-compose.yml restart nginx" >> /var/log/certbot.log
+```
+
+添加执行权，将其加入定时任务
+
+```shell script
+chmod +x /etc/letsencrypt/task.sh
+
+crontab -e
+0 */12 * * * /etc/letsencrypt/task.sh
+```
