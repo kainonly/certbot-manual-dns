@@ -13,15 +13,17 @@ git clone https://github.com/kainonly/certbot-manual-dns.git
 为脚本安装依赖，并增加执行权限
 
 - `requests`
+- `aliyun-python-sdk-core` 阿里云SDK核心库
+- `aliyun-python-sdk-alidns` 阿里云DNS解析库
 
 ```shell script
-pip install requests
+pip install requests aliyun-python-sdk-core aliyun-python-sdk-alidns
 chmod +x ./bootstrap.py
 ```
 
 以 `example.config.ini` 为例，在项目更目录中设置 `config.ini` 配置文件，其中 section 对应主域名，例如 `kainonly.com`
 
-- **platform** 为云服务商类型，当前支持：`qcloud` 腾讯云
+- **platform** 为云服务商类型，当前支持：`qcloud` 腾讯云 `aliyun` 阿里云
 - **id** 为云服务商访问密钥ID
 - **key** 为云服务商访问密钥内容
 - **ttl** 解析TTL，默认 `600`
