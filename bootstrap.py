@@ -29,7 +29,7 @@ try:
     else:
         raise Exception(f'The domain [{CERTBOT_DOMAIN}] platform service provider does not support')
     dns.resolve('_acme-challenge', CERTBOT_VALIDATION, option.get('ttl') or 600)
-    time.sleep(3)
+    time.sleep(15)
     print(f'Verify that the record [_acme-challenge.{CERTBOT_DOMAIN}] is parsed successfully')
 except Exception as e:
     raise
