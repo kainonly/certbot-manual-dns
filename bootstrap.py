@@ -26,6 +26,8 @@ try:
 
     if platform == 'qcloud':
         dns = common.Qcloud(id, key, CERTBOT_DOMAIN)
+    elif platform == 'aliyun':
+        dns = common.Aliyun(id, key, CERTBOT_DOMAIN)
     else:
         raise Exception(f'The domain [{CERTBOT_DOMAIN}] platform service provider does not support')
     dns.resolve('_acme-challenge', CERTBOT_VALIDATION, option.get('ttl') or 600)

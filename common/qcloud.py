@@ -47,10 +47,9 @@ class Qcloud:
         if result['code'] != 0:
             return False
         if len(result['data']['records']) != 0:
-            id = result['data']['records'][0]['id']
             response = self.request('RecordModify', {
                 'domain': self.domain,
-                'recordId': id,
+                'recordId': result['data']['records'][0]['id'],
                 'subDomain': sub_domain,
                 'recordType': 'TXT',
                 'recordLine': '默认',
