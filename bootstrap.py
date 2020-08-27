@@ -11,17 +11,17 @@ try:
     cfg = configparser.ConfigParser()
     cfg.read('config.ini')
     if cfg.has_section(CERTBOT_DOMAIN) is False:
-        raise Exception('The domain [' + CERTBOT_DOMAIN + '] does not exist in the configuration')
+        raise Exception('The domain [', CERTBOT_DOMAIN, '] does not exist in the configuration')
 
     option = cfg[CERTBOT_DOMAIN]
     if option.get('platform') is None:
-        raise Exception('Please configure the [platform] for the domain [' + CERTBOT_DOMAIN + ']')
+        raise Exception('Please configure the [platform] for the domain [', CERTBOT_DOMAIN, ']')
     platform = option.get('platform')
     if option.get('id') is None:
-        raise Exception('Please configure the [id] for the domain [' + CERTBOT_DOMAIN + ']')
+        raise Exception('Please configure the [id] for the domain [', CERTBOT_DOMAIN, ']')
     id = option.get('id')
     if option.get('key') is None:
-        raise Exception('Please configure the [key] for the domain [' + CERTBOT_DOMAIN + ']')
+        raise Exception('Please configure the [key] for the domain [', CERTBOT_DOMAIN, ']')
     key = option.get('key')
 
     if platform == 'qcloud':
@@ -29,9 +29,9 @@ try:
     elif platform == 'aliyun':
         dns = common.Aliyun(id, key, CERTBOT_DOMAIN)
     else:
-        raise Exception('The domain [' + CERTBOT_DOMAIN + '] platform service provider does not support')
+        raise Exception('The domain [', CERTBOT_DOMAIN, '] platform service provider does not support')
     dns.resolve('_acme-challenge', CERTBOT_VALIDATION, option.get('ttl') or 600)
     time.sleep(15)
-    print('Verify that the record [_acme-challenge.' + CERTBOT_DOMAIN + '] is parsed successfully')
+    print('Verify that the record [_acme-challenge.', CERTBOT_DOMAIN, '] is parsed successfully')
 except Exception as e:
     raise
