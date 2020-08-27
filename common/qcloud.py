@@ -25,7 +25,7 @@ class Qcloud:
 
         parameters = 'POST' + url + '?'
         for key in sorted(body):
-            parameters += key + '=' + body[key] + '&'
+            parameters += f'{key}={body[key]}&'
 
         body['Signature'] = base64.b64encode(hmac.new(
             self.key.encode('utf-8'),
