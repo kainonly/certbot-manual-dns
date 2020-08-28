@@ -2,6 +2,8 @@
 
 使用 DNS 验证方式为 Certbot 续约 Let's Encrypt 通配符证书的自动化脚本 
 
+> python 版本需要 > 3.5
+
 ## 使用
 
 克隆该项目
